@@ -5,11 +5,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class NavigationHelper extends HelperBase {
 
+    protected ChromeDriver wd;
+
     public NavigationHelper(ChromeDriver wd) {
         super(wd);
     }
 
     public void gotoGroupPage() {
       click(By.linkText("groups"));
+    }
+
+    public void returnToHomePage() {
+      wd.findElement(By.linkText("home page")).click();
+    }
+
+    public void gotoNewContact() {
+      wd.findElement(By.linkText("add new")).click();
     }
 }

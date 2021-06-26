@@ -5,6 +5,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HelperBase {
+
     protected ChromeDriver wd;
 
     public HelperBase(ChromeDriver wd) {
