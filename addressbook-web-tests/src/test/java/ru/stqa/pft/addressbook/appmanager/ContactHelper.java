@@ -23,7 +23,6 @@ public class ContactHelper extends HelperBase {
     type(By.name("title"), contactData.getTitle1());
     type(By.name("company"), contactData.getCompanyName());
     type(By.name("address"), contactData.getCompanyAddress());
-    click(By.name("theform"));
     type(By.name("home"), contactData.getHomeTel());
     type(By.name("mobile"), contactData.getMobelTel());
     type(By.name("work"), contactData.getWorkTel());
@@ -49,4 +48,17 @@ public class ContactHelper extends HelperBase {
   }
 
   public void returnToHomePage() { click(By.linkText("home page")); }
+
+  public void initContactModification() { click(By.xpath("//img[@alt='Edit']")); }
+
+  public void submitContactModification() { click(By.name("update")); }
+
+  public void findElement() { click(By.id("4")); }
+
+  public void deleteContact() { click(By.xpath("//input[@value='Delete']")); }
+
+  public void acceptAlertDelete() { wd.switchTo().alert().accept(); }
+
+  public void returnToHome() { click(By.linkText("home")); }
+
 }
