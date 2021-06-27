@@ -16,31 +16,30 @@ public class ApplicationManager {
     private GroupHelper groupHelper;
 
     public void init() {
-     //wd = new FirefoxDriver();
-      wd = new ChromeDriver();
-      wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-      wd.get("http://localhost/addressbook/index.php");
-      groupHelper = new GroupHelper(wd);
-      navigationHelper = new NavigationHelper(wd);
-      sessionHelper = new SessionHelper(wd);
-      contactHelper = new ContactHelper(wd);
-      sessionHelper.Login("admin", "secret");
+        //wd = new FirefoxDriver();
+        wd = new ChromeDriver();
+        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/index.php");
+        groupHelper = new GroupHelper(wd);
+        navigationHelper = new NavigationHelper(wd);
+        sessionHelper = new SessionHelper(wd);
+        contactHelper = new ContactHelper(wd);
+        sessionHelper.Login("admin", "secret");
     }
 
     public void stop() {
-      wd.findElement(By.linkText("Logout")).click();
-      wd.quit();
+        wd.findElement(By.linkText("Logout")).click();
+        wd.quit();
     }
 
     public boolean isElementPresent(By by) {
-      try {
-        wd.findElement(by);
-        return true;
-      } catch (NoSuchElementException e) {
-        return false;
-      }
+        try {
+            wd.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
-
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
