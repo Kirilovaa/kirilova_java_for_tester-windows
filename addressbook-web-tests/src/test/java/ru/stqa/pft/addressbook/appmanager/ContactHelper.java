@@ -53,7 +53,11 @@ public class ContactHelper extends HelperBase {
 
   public void submitContactModification() { click(By.name("update")); }
 
-  public void findElement() { click(By.id("4")); }
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
+
+  //public void findElement() { click(By.id("4")); }
 
   public void deleteContact() { click(By.xpath("//input[@value='Delete']")); }
 
