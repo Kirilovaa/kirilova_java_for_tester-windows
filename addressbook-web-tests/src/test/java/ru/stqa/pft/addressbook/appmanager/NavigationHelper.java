@@ -6,15 +6,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class NavigationHelper extends HelperBase {
 
-    protected WebDriver wd;
+    //protected WebDriver wd;
 
     public NavigationHelper(WebDriver wd) {
         super(wd);
     }
 
     public void gotoGroupPage() {
+        if (isElementPresent(By.tagName("h1"))
+        && wd.findElement(By.tagName("h1")).getText().equals("Groups")
+        && isElementPresent(By.name("new"))) {
+            return;
+        }
+
         click(By.linkText("groups"));
     }
-
-
 }
