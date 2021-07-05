@@ -5,6 +5,7 @@ public class ContactData {
   private final String userMiddleName;
   private final String userLastName;
   private final String userNickname;
+  private final String group;
   private final String title1;
   private final String companyName;
   private final String companyAddress;
@@ -23,11 +24,12 @@ public class ContactData {
   private final String amonth;
   private final String ayear;
 
-  public ContactData(String userNameParametr, String userMiddleName, String userLastName, String userNickname, String title1, String companyName, String companyAddress, String homeTel, String mobelTel, String workTel, String fax1, String email1, String email2, String email3, String homePage, String Bday, String bounth, String byear, String aday, String amonth, String ayear) {
+  public ContactData(String userNameParametr, String userMiddleName, String userLastName, String userNickname, String group, String title1, String companyName, String companyAddress, String homeTel, String mobelTel, String workTel, String fax1, String email1, String email2, String email3, String homePage, String Bday, String bounth, String byear, String aday, String amonth, String ayear) {
     this.userNameParametr = userNameParametr;
     this.userMiddleName = userMiddleName;
     this.userLastName = userLastName;
     this.userNickname = userNickname;
+    this.group = group;
     this.title1 = title1;
     this.companyName = companyName;
     this.companyAddress = companyAddress;
@@ -39,7 +41,7 @@ public class ContactData {
     this.email2 = email2;
     this.email3 = email3;
     this.homePage = homePage;
-    bday = Bday;
+    this.bday = Bday;
     this.bounth = bounth;
     this.byear = byear;
     this.aday = aday;
@@ -129,5 +131,9 @@ public class ContactData {
 
   public String getAyear() {
     return ayear;
+  }
+
+  public String getGroup() {
+    return group;
   }
 }
