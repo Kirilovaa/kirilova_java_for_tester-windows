@@ -5,9 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class NavigationHelper extends HelperBase {
 
-    protected ChromeDriver wd;
+    protected WebDriver wd;
 
-    public NavigationHelper(ChromeDriver wd) {
+    public NavigationHelper(WebDriver wd) {
         super(wd);
     }
 

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
-    ChromeDriver wd;
+    WebDriver wd;
 
     private ContactHelper contactHelper;
     private SessionHelper sessionHelper;
@@ -16,8 +16,15 @@ public class ApplicationManager {
     private GroupHelper groupHelper;
 
     public void init() {
+        if (browser == BrowserType.FIREFOX) {
+            wd = new FirefoxDriver();
+        } else if (browser == BrowserType.CHROME) {
+            wd = new ChromeDriver();
+        } else if (browser == BrowserType.IE) {
+            wd = new InternetExplorerDriver();
+        }
         //wd = new FirefoxDriver();
-        wd = new ChromeDriver();
+        //wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/index.php");
         groupHelper = new GroupHelper(wd);
