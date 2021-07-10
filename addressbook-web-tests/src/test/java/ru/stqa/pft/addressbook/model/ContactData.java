@@ -1,7 +1,10 @@
 package ru.stqa.pft.addressbook.model;
 
+import java.util.Objects;
+
 public class ContactData {
-  private final String userNameParametr;
+  private int id;
+  private final String userName;
   private final String userMiddleName;
   private final String userLastName;
   private final String userNickname;
@@ -24,8 +27,9 @@ public class ContactData {
   private final String amonth;
   private final String ayear;
 
-  public ContactData(String userNameParametr, String userMiddleName, String userLastName, String userNickname, String group, String title1, String companyName, String companyAddress, String homeTel, String mobelTel, String workTel, String fax1, String email1, String email2, String email3, String homePage, String Bday, String bounth, String byear, String aday, String amonth, String ayear) {
-    this.userNameParametr = userNameParametr;
+  public ContactData(int id,String userName, String userMiddleName, String userLastName, String userNickname, String group, String title1, String companyName, String companyAddress, String homeTel, String mobelTel, String workTel, String fax1, String email1, String email2, String email3, String homePage, String Bday, String bounth, String byear, String aday, String amonth, String ayear) {
+    this.id = id;
+    this.userName = userName;
     this.userMiddleName = userMiddleName;
     this.userLastName = userLastName;
     this.userNickname = userNickname;
@@ -49,8 +53,48 @@ public class ContactData {
     this.ayear = ayear;
   }
 
-  public String getUserNameParametr() {
-    return userNameParametr;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return Objects.equals(userName, that.userName) && Objects.equals(userLastName, that.userLastName);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(userName, userLastName);
+  }
+
+  public ContactData(String userName, String userMiddleName, String userLastName, String userNickname, String group, String title1, String companyName, String companyAddress, String homeTel, String mobelTel, String workTel, String fax1, String email1, String email2, String email3, String homePage, String Bday, String bounth, String byear, String aday, String amonth, String ayear) {
+    this.id = Integer.MAX_VALUE;
+    this.userName = userName;
+    this.userMiddleName = userMiddleName;
+    this.userLastName = userLastName;
+    this.userNickname = userNickname;
+    this.group = group;
+    this.title1 = title1;
+    this.companyName = companyName;
+    this.companyAddress = companyAddress;
+    this.homeTel = homeTel;
+    this.mobelTel = mobelTel;
+    this.workTel = workTel;
+    this.fax1 = fax1;
+    this.email1 = email1;
+    this.email2 = email2;
+    this.email3 = email3;
+    this.homePage = homePage;
+    this.bday = Bday;
+    this.bounth = bounth;
+    this.byear = byear;
+    this.aday = aday;
+    this.amonth = amonth;
+    this.ayear = ayear;
+  }
+
+
+  public String getUserName() {
+    return userName;
   }
 
   public String getUserMiddleName() {
@@ -135,5 +179,21 @@ public class ContactData {
 
   public String getGroup() {
     return group;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", userName='" + userName + '\'' +
+            ", userLastName='" + userLastName + '\'' +
+            '}';
+  }
+
+  public int getId() {
+    return id;
+  }
+  public void setId(int id) {
+    this.id = id;
   }
 }
