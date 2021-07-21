@@ -58,12 +58,15 @@ public class ContactHelper extends HelperBase {
     click(By.name("submit"));
   }
 
-  public void initContactModification() { click(By.xpath("//img[@alt='Edit']")); }
+  public void initContactModification() {
+    click(By.xpath("//img[@alt='Edit']")); }
 
   public void submitContactModification() { click(By.name("update")); }
 
   public void selectContact(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();}
+
+
 
   public void deleteContact() { click(By.xpath("//input[@value='Delete']")); }
 
