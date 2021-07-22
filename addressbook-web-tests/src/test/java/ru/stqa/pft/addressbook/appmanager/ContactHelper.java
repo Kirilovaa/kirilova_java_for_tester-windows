@@ -6,11 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
-
-import java.util.ArrayList;
-import java.util.HashSet;
+import ru.stqa.pft.addressbook.model.Contacts;
 import java.util.List;
-import java.util.Set;
+
 
 public class ContactHelper extends HelperBase {
 
@@ -40,8 +38,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("homepage"), contactData.getHomePage());
     new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
     click(By.name("bday"));
-    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmounth());
-    click(By.name("bmonth"));
+    new Select(wd.findElement(By.name("bmounth"))).selectByVisibleText(contactData.getBmounth());
+    click(By.name("bmounth"));
     type(By.name("byear"), contactData.getByear());
     new Select(wd.findElement(By.name("aday"))).selectByVisibleText(contactData.getAday());
     click(By.name("aday"));
@@ -68,8 +66,6 @@ public class ContactHelper extends HelperBase {
   public void selectContact(int index) {
     wd.findElements(By.name("selected[]")).get(index).click();}
 
-
-
   public void deleteContact() { click(By.xpath("//input[@value='Delete']")); }
 
   public void acceptAlertDelete() { wd.switchTo().alert().accept(); }
@@ -93,6 +89,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void modify (ContactData contact) {
+    selectContactById(contact.getId());
     initContactModification();
     fillContactForm(contact, false);
     submitContactModification();
@@ -114,8 +111,8 @@ public class ContactHelper extends HelperBase {
       return wd.findElements(By.name("selected[]")).size();
     }
 
-  public Set<ContactData> all() {
-    Set<ContactData> contacts = new HashSet<ContactData>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List<WebElement> rows = wd.findElements(By.tagName("tr"));
     for(int a= 2;a<rows.size();a++){
       WebElement tableRow = wd.findElement(By.xpath("//tr["+a+"]"));
