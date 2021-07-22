@@ -8,7 +8,9 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -90,19 +92,32 @@ public class ContactHelper extends HelperBase {
    HomePage();
   }
 
+  public void modify (ContactData contact) {
+    initContactModification();
+    fillContactForm(contact, false);
+    submitContactModification();
+    HomePage();
+  }
+
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[value='"+ id + "']")).click();
+  }
+
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
+    deleteContact();
+    acceptAlertDelete();
+    HomePage();
+  }
+
   public int getContactCount() {
       return wd.findElements(By.name("selected[]")).size();
     }
 
-  public List<ContactData> getContactList() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
     List<WebElement> rows = wd.findElements(By.tagName("tr"));
-//    for (WebElement element : cells ) {
-//     String userName = element.findElement(By.xpath(".//td[3]")).getText();
-//      String userLastName = element.findElement(By.xpath(".//td[2]")).getText();
-//      cells.get(el)
     for(int a= 2;a<rows.size();a++){
-      //WebElement baseTable = wd.findElement(By.tagName("table"));
       WebElement tableRow = wd.findElement(By.xpath("//tr["+a+"]"));
       String userLastName = tableRow.findElement(By.xpath(".//td[2]")).getText();
       String userName = tableRow.findElement(By.xpath(".//td[3]")).getText();

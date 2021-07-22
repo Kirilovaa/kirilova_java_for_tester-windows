@@ -27,21 +27,18 @@ public class ContactData {
   private  String amonth;
   private  String ayear;
 
-
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ContactData that = (ContactData) o;
-    return Objects.equals(userName, that.userName) && Objects.equals(userLastName, that.userLastName);
+    return id == that.id && Objects.equals(userName, that.userName) && Objects.equals(userMiddleName, that.userMiddleName) && Objects.equals(userLastName, that.userLastName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userName, userLastName);
+    return Objects.hash(id, userName, userMiddleName, userLastName);
   }
-
-
 
   public String getUserName() {
     return userName;
