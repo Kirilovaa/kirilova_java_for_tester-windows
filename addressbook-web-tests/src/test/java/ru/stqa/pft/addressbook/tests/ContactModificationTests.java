@@ -5,25 +5,24 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTests extends TestBase {
     @Test
     public void testContactModification() {
-        app.getContactHelper().returnToHomePage();
-        if (!app.getContactHelper().isThereAContact()) {
-            app.getContactHelper().createContact(new ContactData("userName", "userMiddleName", "userLastName", "userNickname", "test1", "title1", "companyName", "companyAddress", "homeTel", "mobelTel", "workTel", "fax1", "email1", "email2", "email3", "homePage", "10", "January", "1980", "10", "December", "1999"), true);
+        app.contact().HomePage();
+        if (!app.contact().isThereAContact()) {
+            app.contact().create(new ContactData().withUserName("userName").withUserMiddleName("userMiddleName").withUserLastName("userLastName"), true);
         }
-        List<ContactData> before = app.getContactHelper().getContactList();
+        List<ContactData> before = app.contact().getContactList();
         int index = before.size() - 1;
-        app.getContactHelper().selectContact(index);
-        app.getContactHelper().initContactModification();
-        ContactData contact = new ContactData(before.get(index).getId(), "userName", "userMiddleName", "userLastName", "userNickname", "test1", "title1", "companyName", "companyAddress", "homeTel", "mobelTel", "workTel", "fax1", "email1", "email2", "email3", "homePage", "10", "January", "1980", "10", "December", "1999");
-        app.getContactHelper().fillContactForm(contact, false);
-        app.getContactHelper().submitContactModification();
-        app.getContactHelper().returnToHomePage();
-        List<ContactData> after = app.getContactHelper().getContactList();
+        app.contact().selectContact(index);
+        app.contact().initContactModification();
+        ContactData contact = new ContactData().withId(before.get(index).getId()).withUserName("userName").withUserMiddleName("userMiddleName").withUserLastName("userLastName");
+        app.contact().fillContactForm(contact, false);
+        app.contact().submitContactModification();
+        app.contact().HomePage();
+        List<ContactData> after = app.contact().getContactList();
         Assert.assertEquals(after.size(), before.size());
 
         before.remove(index);

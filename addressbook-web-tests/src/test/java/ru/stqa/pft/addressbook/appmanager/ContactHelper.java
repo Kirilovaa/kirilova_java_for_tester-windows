@@ -38,7 +38,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("homepage"), contactData.getHomePage());
     new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
     click(By.name("bday"));
-    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBounth());
+    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmounth());
     click(By.name("bmonth"));
     type(By.name("byear"), contactData.getByear());
     new Select(wd.findElement(By.name("aday"))).selectByVisibleText(contactData.getAday());
@@ -72,7 +72,7 @@ public class ContactHelper extends HelperBase {
 
   public void acceptAlertDelete() { wd.switchTo().alert().accept(); }
 
-  public void returnToHomePage() {
+  public void HomePage() {
     if (isElementPresent(By.id("maintable"))){
       return;
     }
@@ -83,11 +83,11 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.name("selected[]"));
   }
 
-  public void createContact(ContactData contact, boolean b) {
+  public void create(ContactData contact, boolean b) {
    gotoNewContact();
    fillContactForm(contact,b);
    submitContactCreation();
-   returnToHomePage();
+   HomePage();
   }
 
   public int getContactCount() {
@@ -107,8 +107,7 @@ public class ContactHelper extends HelperBase {
       String userLastName = tableRow.findElement(By.xpath(".//td[2]")).getText();
       String userName = tableRow.findElement(By.xpath(".//td[3]")).getText();
       int id = Integer.parseInt(tableRow.findElement(By.xpath(".//td[1]//input")).getAttribute("value"));
-      ContactData contact = new ContactData(id, userName, null, userLastName, null, null, null, null, null, null, null, null, null,null,null, null, null, null,null,null, null, null, null);
-      contacts.add(contact);
+      contacts.add(new ContactData().withId(id).withUserName(userName).withUserLastName(userLastName));
     }
     return contacts;
   }

@@ -9,16 +9,16 @@ import java.util.List;
 public class ContactDeletionTests extends TestBase{
     @Test
     public void testContactDeletion() {
-        app.getContactHelper().returnToHomePage();
-        if (! app.getContactHelper().isThereAContact()){
-            app.getContactHelper().createContact(new ContactData("userName", "userMiddleName", "userLastName", "userNickname", "test1","title1", "companyName", "companyAddress", "homeTel", "mobelTel", "workTel", "fax1", "email1", "email2", "email3", "homePage", "10", "January", "1980", "10", "December", "1999"), true);
+        app.contact().HomePage();
+        if (! app.contact().isThereAContact()){
+            app.contact().create(new ContactData().withUserName("userName").withUserMiddleName("userMiddleName").withUserLastName("userLastName"), true);
         }
-        List<ContactData> before = app.getContactHelper().getContactList();
-        app.getContactHelper().selectContact(before.size()-1);
-        app.getContactHelper().deleteContact();
-        app.getContactHelper().acceptAlertDelete();
-        app.getContactHelper().returnToHomePage();
-        List<ContactData> after = app.getContactHelper().getContactList();
+        List<ContactData> before = app.contact().getContactList();
+        app.contact().selectContact(before.size()-1);
+        app.contact().deleteContact();
+        app.contact().acceptAlertDelete();
+        app.contact().HomePage();
+        List<ContactData> after = app.contact().getContactList();
         Assert.assertEquals(after.size(), before.size() - 1);
         before.remove(before.size() - 1);
         Assert.assertEquals(before, after);
