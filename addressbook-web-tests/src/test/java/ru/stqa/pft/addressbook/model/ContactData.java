@@ -26,6 +26,16 @@ public class ContactData {
   private  String aday;
   private  String amonth;
   private  String ayear;
+  private  String allPhones;
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
 
   @Override
   public boolean equals(Object o) {

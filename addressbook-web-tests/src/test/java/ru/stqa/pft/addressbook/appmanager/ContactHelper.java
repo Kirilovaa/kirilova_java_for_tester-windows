@@ -7,7 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class ContactHelper extends HelperBase {
@@ -63,9 +65,6 @@ public class ContactHelper extends HelperBase {
 
   public void submitContactModification() { click(By.name("update")); }
 
-  public void selectContact(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();}
-
   public void deleteContact() { click(By.xpath("//input[@value='Delete']")); }
 
   public void acceptAlertDelete() { wd.switchTo().alert().accept(); }
@@ -118,10 +117,41 @@ public class ContactHelper extends HelperBase {
       WebElement tableRow = wd.findElement(By.xpath("//tr["+a+"]"));
       String userLastName = tableRow.findElement(By.xpath(".//td[2]")).getText();
       String userName = tableRow.findElement(By.xpath(".//td[3]")).getText();
+      String allPhones = tableRow.findElement(By.xpath(".//td[6]")).getText();
       int id = Integer.parseInt(tableRow.findElement(By.xpath(".//td[1]//input")).getAttribute("value"));
-      contacts.add(new ContactData().withId(id).withUserName(userName).withUserLastName(userLastName));
+      contacts.add(new ContactData().withId(id).withUserName(userName).withUserLastName(userLastName)
+              .withAllPhones(allPhones));
     }
     return contacts;
+  }
+//  public Set<ContactData> all() {
+//    Set<ContactData> contacts = new HashSet<ContactData>();
+//    List<WebElement> rows = wd.findElements(By.tagName("entry"));
+//    for (WebElement row : rows){
+//      WebElement cells = row.findElement(By.tagName("td"));
+//      int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
+//      String userLastName = cells.getText(1).getText();
+//      String userName = cells.get(2).getText();
+//      String[] phones = cells.get(5).getText().split("\n");
+//      contacts.add(new ContactData().withId(id).withUserName(userName).withUserLastName(userLastName))
+//      .withHomeTel(phones(0)).withMobelTel(phones(1)).withWorkTel(phones(2));
+//    }
+//    return contacts;
+
+  public ContactData infoFormEditForm(ContactData contact) {
+    initContactModificationById(contact.getId());
+    String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    String work = wd.findElement(By.name("work")).getAttribute("value");
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).withUserName(firstname).withUserLastName(lastname)
+            .withHomeTel(home).withMobelTel(mobile).withWorkTel(work);
+  }
+
+  private void initContactModificationById(int id) {
+    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 }
 
