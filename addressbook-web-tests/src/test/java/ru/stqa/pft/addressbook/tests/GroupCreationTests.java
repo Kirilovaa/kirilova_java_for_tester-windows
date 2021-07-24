@@ -3,15 +3,12 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
-
-import java.io.File;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.*;
 
 public class GroupCreationTests extends TestBase {
 
-    @Test(enabled = false)
+    @Test
     public void testGroupCreation() {
         app.goTo().groupPage();
         Groups before = app.group().all();
@@ -23,7 +20,7 @@ public class GroupCreationTests extends TestBase {
                 before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
     }
 
-    @Test(enabled = false)
+    @Test
     public void testBadGroupCreation() {
         app.goTo().groupPage();
         Groups before = app.group().all();
