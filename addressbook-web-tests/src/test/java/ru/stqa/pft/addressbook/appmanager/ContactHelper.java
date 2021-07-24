@@ -48,6 +48,7 @@ public class ContactHelper extends HelperBase {
     new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(contactData.getAmonth());
     click(By.name("amonth"));
     type(By.name("ayear"), contactData.getAyear());
+    attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());

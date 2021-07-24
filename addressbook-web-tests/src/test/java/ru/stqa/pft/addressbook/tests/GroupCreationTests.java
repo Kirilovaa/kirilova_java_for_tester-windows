@@ -4,12 +4,14 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.*;
 
 public class GroupCreationTests extends TestBase {
 
-    @Test
+    @Test(enabled = false)
     public void testGroupCreation() {
         app.goTo().groupPage();
         Groups before = app.group().all();
@@ -20,7 +22,8 @@ public class GroupCreationTests extends TestBase {
         assertThat(after, equalTo(
                 before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
     }
-    @Test
+
+    @Test(enabled = false)
     public void testBadGroupCreation() {
         app.goTo().groupPage();
         Groups before = app.group().all();
