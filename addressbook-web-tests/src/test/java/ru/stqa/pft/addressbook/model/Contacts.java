@@ -14,12 +14,7 @@ public class Contacts extends ForwardingSet<ContactData> {
     }
 
     public Contacts() {
-        this.delegate = new HashSet<>();
-    }
-
-    @Override
-    protected Set<ContactData> delegate() {
-        return delegate;
+        this.delegate = new HashSet<ContactData>();
     }
 
     public Contacts withAdded (ContactData contact) {
@@ -31,5 +26,10 @@ public class Contacts extends ForwardingSet<ContactData> {
         Contacts contacts = new Contacts(this);
         contacts.remove(contact);
         return contacts;
+    }
+
+    @Override
+    protected Set<ContactData> delegate() {
+        return delegate;
     }
 }
