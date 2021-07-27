@@ -21,13 +21,11 @@ import static org.hamcrest.MatcherAssert.*;
 
 public class GroupCreationTests extends TestBase {
 
-    Logger logger = LoggerFactory.getLogger(GroupCreationTests.class);
-
 
     @DataProvider
     public Iterator<Object[]> validGroupsFromXml () throws IOException {
         List <Object[]> list = new ArrayList<Object[]>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resourses/groups.xml")));
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
         String xml = "";
         String line = reader.readLine();
         while (line != null) {
@@ -43,7 +41,7 @@ public class GroupCreationTests extends TestBase {
     @DataProvider
     public Iterator<Object[]> validGroupsFromJson () throws IOException {
         List <Object[]> list = new ArrayList<Object[]>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resourses/groups.json")));
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
         String json = "";
         String line = reader.readLine();
         while (line != null) {
@@ -56,7 +54,6 @@ public class GroupCreationTests extends TestBase {
     }
     @Test (dataProvider = "validGroupsFromJson")
     public void testGroupCreation(GroupData group) {
-        logger.info("Start test testGroupCreation");
         app.goTo().groupPage();
         Groups before = app.group().all();
         app.group().create(group);
@@ -64,7 +61,6 @@ public class GroupCreationTests extends TestBase {
         Groups after = app.group().all();
         assertThat(after, equalTo(
                 before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-        logger.info("Stop test testGroupCreation");
     }
 
     @Test
