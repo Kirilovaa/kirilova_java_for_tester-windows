@@ -8,27 +8,30 @@ public class ContactData {
   private  String userName;
   private  String userMiddleName;
   private  String userLastName;
-  private  String userNickname;
+//  private  String userNickname;
   private  String group;
-  private  String title1;
-  private  String companyName;
-  private  String companyAddress;
+//  private  String title1;
+//  private  String companyName;
+//  private  String companyAddress;
   private  String homeTel;
   private  String mobelTel;
   private  String workTel;
-  private  String fax1;
-  private  String email1;
-  private  String email2;
-  private  String email3;
-  private  String homePage;
-  private  String bday;
-  private  String bmounth;
-  private  String byear;
-  private  String aday;
-  private  String amonth;
-  private  String ayear;
+//  private  String fax1;
+//  private  String email1;
+//  private  String email2;
+//  private  String email3;
+//  private  String homePage;
+//  private  String bday;
+//  private  String bmounth;
+//  private  String byear;
+//  private  String aday;
+//  private  String amonth;
+//  private  String ayear;
   private  String allPhones;
   private File photo;
+
+  public static void setId(int max1) {
+  }
 
   public File getPhoto() {
     return photo;
@@ -73,77 +76,77 @@ public class ContactData {
     return userLastName;
   }
 
-  public String getUserNickname() {
-    return userNickname;
-  }
-
-  public String getTitle1() {
-    return title1;
-  }
-
-  public String getCompanyName() {
-    return companyName;
-  }
-
-  public String getCompanyAddress() {
-    return companyAddress;
-  }
-
+//  public String getUserNickname() {
+//    return userNickname;
+//  }
+//
+//  public String getTitle1() {
+//    return title1;
+//  }
+//
+//  public String getCompanyName() {
+//    return companyName;
+//  }
+//
+//  public String getCompanyAddress() {
+//    return companyAddress;
+//  }
+//
   public String getHomeTel() {
     return homeTel;
   }
-
+//
   public String getMobelTel() {
     return mobelTel;
   }
-
+//
   public String getWorkTel() {
     return workTel;
   }
-
-  public String getFax1() {
-    return fax1;
-  }
-
-  public String getEmail1() {
-    return email1;
-  }
-
-  public String getEmail2() {
-    return email2;
-  }
-
-  public String getEmail3() {
-    return email3;
-  }
-
-  public String getHomePage() {
-    return homePage;
-  }
-
-  public String getBday() {
-    return bday;
-  }
-
-  public String getBmounth() {
-    return bmounth;
-  }
-
-  public String getByear() {
-    return byear;
-  }
-
-  public String getAday() {
-    return aday;
-  }
-
-  public String getAmonth() {
-    return amonth;
-  }
-
-  public String getAyear() {
-    return ayear;
-  }
+//
+//  public String getFax1() {
+//    return fax1;
+//  }
+//
+//  public String getEmail1() {
+//    return email1;
+//  }
+//
+//  public String getEmail2() {
+//    return email2;
+//  }
+//
+//  public String getEmail3() {
+//    return email3;
+//  }
+//
+//  public String getHomePage() {
+//    return homePage;
+//  }
+//
+//  public String getBday() {
+//    return bday;
+//  }
+//
+//  public String getBmounth() {
+//    return bmounth;
+//  }
+//
+//  public String getByear() {
+//    return byear;
+//  }
+//
+//  public String getAday() {
+//    return aday;
+//  }
+//
+//  public String getAmonth() {
+//    return amonth;
+//  }
+//
+//  public String getAyear() {
+//    return ayear;
+//  }
 
   public String getGroup() {
     return group;
@@ -177,26 +180,26 @@ public class ContactData {
     this.userLastName = userLastName;
     return this;
   }
-  public ContactData withUserNickname(String userNickname) {
-    this.userNickname = userNickname;
-    return this;
-  }
+//  public ContactData withUserNickname(String userNickname) {
+//    this.userNickname = userNickname;
+//    return this;
+//  }
   public ContactData withGroup(String group) {
     this.group = group;
     return this;
   }
-  public ContactData withTitle1(String title1) {
-    this.title1 = title1;
-    return this;
-  }
-  public ContactData withCompanyName(String companyName) {
-    this.companyName = companyName;
-    return this;
-  }
-  public ContactData withCompanyAddress(String companyAddress) {
-    this.companyAddress = companyAddress;
-    return this;
-  }
+//  public ContactData withTitle1(String title1) {
+//    this.title1 = title1;
+//    return this;
+//  }
+//  public ContactData withCompanyName(String companyName) {
+//    this.companyName = companyName;
+//    return this;
+//  }
+//  public ContactData withCompanyAddress(String companyAddress) {
+//    this.companyAddress = companyAddress;
+//    return this;
+//  }
   public ContactData withHomeTel(String homeTel) {
     this.homeTel = homeTel;
     return this;
@@ -209,51 +212,50 @@ public class ContactData {
     this.workTel = workTel;
     return this;
   }
-  public ContactData withFax1(String fax1) {
-    this.fax1 = fax1;
-    return this;
+//  public ContactData withFax1(String fax1) {
+//    this.fax1 = fax1;
+//    return this;
+//  }
+//  public ContactData withEmail1(String email1) {
+//    this.email1 = email1;
+//    return this;
+//  }
+//  public ContactData withEmail2(String email2) {
+//    this.email2 = email2;
+//    return this;
+//  }
+//  public ContactData withEmail3(String email3) {
+//    this.email3 = email3;
+//    return this;
+//  }
+//  public ContactData withHomePage(String homePage) {
+//    this.homePage = homePage;
+//    return this;
+//  }
+//  public ContactData withBday(String bday) {
+//    this.bday = bday;
+//    return this;
+//  }
+//  public ContactData withBmounth(String bmounth) {
+//    this.bmounth = bmounth;
+//    return this;
+//  }
+//  public ContactData withByear(String byear) {
+//    this.byear = byear;
+//    return this;
+//  }
+//  public ContactData withAday(String aday) {
+//    this.aday = aday;
+//    return this;
+//  }
+//  public ContactData withAmonth(String amonth) {
+//    this.amonth = amonth;
+//    return this;
+//  }
+//  public ContactData withAyear(String ayear) {
+//    this.ayear = ayear;
+//    return this;
+//  }
+//  public static void setId(int id) {
+//    this.id = id;
   }
-  public ContactData withEmail1(String email1) {
-    this.email1 = email1;
-    return this;
-  }
-  public ContactData withEmail2(String email2) {
-    this.email2 = email2;
-    return this;
-  }
-  public ContactData withEmail3(String email3) {
-    this.email3 = email3;
-    return this;
-  }
-  public ContactData withHomePage(String homePage) {
-    this.homePage = homePage;
-    return this;
-  }
-  public ContactData withBday(String bday) {
-    this.bday = bday;
-    return this;
-  }
-  public ContactData withBmounth(String bmounth) {
-    this.bmounth = bmounth;
-    return this;
-  }
-  public ContactData withByear(String byear) {
-    this.byear = byear;
-    return this;
-  }
-  public ContactData withAday(String aday) {
-    this.aday = aday;
-    return this;
-  }
-  public ContactData withAmonth(String amonth) {
-    this.amonth = amonth;
-    return this;
-  }
-  public ContactData withAyear(String ayear) {
-    this.ayear = ayear;
-    return this;
-  }
-  public void setId(int id) {
-    this.id = id;
-  }
-}
