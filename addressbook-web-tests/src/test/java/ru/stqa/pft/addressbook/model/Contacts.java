@@ -30,4 +30,5 @@ public class Contacts extends ForwardingSet<ContactData> {
     protected Set<ContactData> delegate() {
         return delegate;
     }
+
 }
