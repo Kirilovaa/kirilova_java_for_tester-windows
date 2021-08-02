@@ -56,12 +56,12 @@ public class ContactData {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ContactData that = (ContactData) o;
-    return Objects.equals(userName, that.userName) && Objects.equals(userLastName, that.userLastName);
+    return id == that.id && Objects.equals(userName, that.userName) && Objects.equals(userMiddleName, that.userMiddleName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userName, userLastName);
+    return Objects.hash(id, userName, userMiddleName);
   }
 
   public String getUserName() {
@@ -164,6 +164,7 @@ public class ContactData {
   public int getId() {
     return id;
   }
+
   public ContactData withId(int id) {
     this.id = id;
     return this;
