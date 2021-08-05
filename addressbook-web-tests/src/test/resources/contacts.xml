@@ -1,0 +1,22 @@
+<list>
+  <contact>
+    <userName>name 0</userName>
+    <userLastName>lastName 0</userLastName>
+  </contact>
+  <contact>
+    <userName>name 1</userName>
+    <userLastName>lastName 1</userLastName>
+  </contact>
+  <contact>
+    <userName>name 2</userName>
+    <userLastName>lastName 2</userLastName>
+  </contact>
+  <contact>
+    <userName>name 3</userName>
+    <userLastName>lastName 3</userLastName>
+  </contact>
+  <contact>
+    <userName>name 4</userName>
+    <userLastName>lastName 4</userLastName>
+  </contact>
+</list>
