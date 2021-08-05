@@ -12,14 +12,14 @@ public class ContactData {
   private  String group;
 //  private  String title1;
 //  private  String companyName;
-//  private  String companyAddress;
+  private  String companyAddress;
   private  String homeTel;
   private  String mobelTel;
   private  String workTel;
 //  private  String fax1;
-//  private  String email1;
-//  private  String email2;
-//  private  String email3;
+  private  String email1;
+  private  String email2;
+  private  String email3;
 //  private  String homePage;
 //  private  String bday;
 //  private  String bmounth;
@@ -28,6 +28,7 @@ public class ContactData {
 //  private  String amonth;
 //  private  String ayear;
   private  String allPhones;
+  private String allEmails;
   private File photo;
 
   public static void setId(int max1) {
@@ -88,18 +89,18 @@ public class ContactData {
 //    return companyName;
 //  }
 //
-//  public String getCompanyAddress() {
-//    return companyAddress;
-//  }
-//
+  public String getCompanyAddress() {
+    return companyAddress;
+  }
+
   public String getHomeTel() {
     return homeTel;
   }
-//
+
   public String getMobelTel() {
     return mobelTel;
   }
-//
+
   public String getWorkTel() {
     return workTel;
   }
@@ -108,18 +109,18 @@ public class ContactData {
 //    return fax1;
 //  }
 //
-//  public String getEmail1() {
-//    return email1;
-//  }
-//
-//  public String getEmail2() {
-//    return email2;
-//  }
-//
-//  public String getEmail3() {
-//    return email3;
-//  }
-//
+  public String getEmail1() {
+    return email1;
+  }
+
+  public String getEmail2() {
+    return email2;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
+
 //  public String getHomePage() {
 //    return homePage;
 //  }
@@ -197,10 +198,10 @@ public class ContactData {
 //    this.companyName = companyName;
 //    return this;
 //  }
-//  public ContactData withCompanyAddress(String companyAddress) {
-//    this.companyAddress = companyAddress;
-//    return this;
-//  }
+  public ContactData withCompanyAddress(String companyAddress) {
+    this.companyAddress = companyAddress;
+    return this;
+  }
   public ContactData withHomeTel(String homeTel) {
     this.homeTel = homeTel;
     return this;
@@ -217,18 +218,27 @@ public class ContactData {
 //    this.fax1 = fax1;
 //    return this;
 //  }
-//  public ContactData withEmail1(String email1) {
-//    this.email1 = email1;
-//    return this;
-//  }
-//  public ContactData withEmail2(String email2) {
-//    this.email2 = email2;
-//    return this;
-//  }
-//  public ContactData withEmail3(String email3) {
-//    this.email3 = email3;
-//    return this;
-//  }
+  public ContactData withEmail1(String email1) {
+    this.email1 = email1;
+    return this;
+  }
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
+    return this;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+  public String getAllEmails() {
+    return allEmails;
+  }
+
 //  public ContactData withHomePage(String homePage) {
 //    this.homePage = homePage;
 //    return this;

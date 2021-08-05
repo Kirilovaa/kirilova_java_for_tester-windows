@@ -15,7 +15,9 @@ public class ContactPhoneTests extends TestBase {
         app.contact().HomePage();
         ContactData contact = app.contact().all().iterator().next();
         ContactData contactInfoFormEditForm = app.contact().infoFormEditForm(contact);
+
         assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFormEditForm)));
+        assertThat(contact.getAllEmails(), equalTo(mergeEmails(contactInfoFormEditForm)));
     }
 
     private String mergePhones(ContactData contact) {
@@ -24,7 +26,13 @@ public class ContactPhoneTests extends TestBase {
                 .map(ContactPhoneTests::cleaned)
                 .collect(Collectors.joining("\n"));
     }
-
+    private String mergeEmails(ContactData contact) {
+        return Arrays.asList(contact.getEmail1(), contact.getEmail2(), contact.getEmail3())
+                .stream().filter((s) -> ! s.equals(""))
+                .map(ContactPhoneTests::cleaned)
+                .collect(Collectors.joining("\n"));
+    }
+//удаляем ненужные символы
     public static String cleaned (String phone) {
         return phone.replaceAll("\\s", "").replaceAll("[-()]","");
     }
