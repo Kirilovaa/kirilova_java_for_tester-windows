@@ -3,30 +3,63 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+@Entity
+@Table (name = "addressbook")
 @XStreamAlias("contact")
 public class ContactData {
+
+  @Id
+  @Column (name = "id")
   @XStreamOmitField
   private int id = Integer.MAX_VALUE;;
+
+  @Column (name = "firstname")
   @Expose
   private  String userName;
+
+  @Transient
   private  String userMiddleName;
+
+  @Column (name = "lastname")
   @Expose
   private  String userLastName;
 //  private  String userNickname;
+  @Transient
   private  String group;
 //  private  String title1;
 //  private  String companyName;
+  @Transient
   private  String companyAddress;
+
+  @Column (name = "home")
+  @Type(type = "text")
   private  String homeTel;
+
+  @Column (name = "mobile")
+  @Type(type = "text")
   private  String mobelTel;
+
+  @Column (name = "work")
+  @Type(type = "text")
   private  String workTel;
 //  private  String fax1;
+
+  @Column (name = "email")
+  @Type(type = "text")
   private  String email1;
+
+  @Column (name = "email2")
+  @Type(type = "text")
   private  String email2;
+
+  @Column (name = "email3")
+  @Type(type = "text")
   private  String email3;
 //  private  String homePage;
 //  private  String bday;
@@ -35,19 +68,26 @@ public class ContactData {
 //  private  String aday;
 //  private  String amonth;
 //  private  String ayear;
+
+  @Transient
   private  String allPhones;
+
+  @Transient
   private String allEmails;
-  private File photo;
+
+  @Column (name = "photo")
+  @Type(type = "text")
+  private String photo;
 
   public static void setId(int max1) {
   }
 
   public File getPhoto() {
-    return photo;
+    return  new File (photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -161,15 +201,6 @@ public class ContactData {
     return group;
   }
 
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id=" + id +
-            ", userName='" + userName + '\'' +
-            ", userLastName='" + userLastName + '\'' +
-            '}';
-  }
-
   public int getId() {
     return id;
   }
@@ -247,6 +278,14 @@ public class ContactData {
     return allEmails;
   }
 
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", userName='" + userName + '\'' +
+            ", userLastName='" + userLastName + '\'' +
+            '}';
+  }
 //  public ContactData withHomePage(String homePage) {
 //    this.homePage = homePage;
 //    return this;
