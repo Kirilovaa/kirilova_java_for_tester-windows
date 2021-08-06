@@ -14,3 +14,14 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.3.0-alpha5'
 }
 
+task testGroups (type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-groups.xml'
+    }
+}
+
+task testContacts (type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-contacts.xml'
+    }
+}
