@@ -2,21 +2,66 @@
   <contact>
     <userName>name 0</userName>
     <userLastName>lastName 0</userLastName>
+    <group>test 0</group>
+    <companyAddress>city S, street 0</companyAddress>
+    <homeTel>+79161111110</homeTel>
+    <mobelTel>+79161111110</mobelTel>
+    <workTel>+79161111110</workTel>
+    <email1>a0@a.ru</email1>
+    <email2>b0@a.ru</email2>
+    <email3>c0@a.ru</email3>
+    <photo>src\test\resources\осоед.jpg</photo>
   </contact>
   <contact>
     <userName>name 1</userName>
     <userLastName>lastName 1</userLastName>
+    <group>test 1</group>
+    <companyAddress>city S, street 1</companyAddress>
+    <homeTel>+79161111111</homeTel>
+    <mobelTel>+79161111111</mobelTel>
+    <workTel>+79161111111</workTel>
+    <email1>a1@a.ru</email1>
+    <email2>b1@a.ru</email2>
+    <email3>c1@a.ru</email3>
+    <photo>src\test\resources\осоед.jpg</photo>
   </contact>
   <contact>
     <userName>name 2</userName>
     <userLastName>lastName 2</userLastName>
+    <group>test 2</group>
+    <companyAddress>city S, street 2</companyAddress>
+    <homeTel>+79161111112</homeTel>
+    <mobelTel>+79161111112</mobelTel>
+    <workTel>+79161111112</workTel>
+    <email1>a2@a.ru</email1>
+    <email2>b2@a.ru</email2>
+    <email3>c2@a.ru</email3>
+    <photo>src\test\resources\осоед.jpg</photo>
   </contact>
   <contact>
     <userName>name 3</userName>
     <userLastName>lastName 3</userLastName>
+    <group>test 3</group>
+    <companyAddress>city S, street 3</companyAddress>
+    <homeTel>+79161111113</homeTel>
+    <mobelTel>+79161111113</mobelTel>
+    <workTel>+79161111113</workTel>
+    <email1>a3@a.ru</email1>
+    <email2>b3@a.ru</email2>
+    <email3>c3@a.ru</email3>
+    <photo>src\test\resources\осоед.jpg</photo>
   </contact>
   <contact>
     <userName>name 4</userName>
     <userLastName>lastName 4</userLastName>
+    <group>test 4</group>
+    <companyAddress>city S, street 4</companyAddress>
+    <homeTel>+79161111114</homeTel>
+    <mobelTel>+79161111114</mobelTel>
+    <workTel>+79161111114</workTel>
+    <email1>a4@a.ru</email1>
+    <email2>b4@a.ru</email2>
+    <email3>c4@a.ru</email3>
+    <photo>src\test\resources\осоед.jpg</photo>
   </contact>
 </list>

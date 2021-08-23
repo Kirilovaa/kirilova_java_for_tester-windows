@@ -76,9 +76,19 @@ public class ContactDataGenerator {
 
     private List<ContactData> generateContacts(int count) {
         List<ContactData> contacts = new ArrayList<>();
+        File photo = new File("src/test/resources/осоед.jpg");
         for (int i = 0; i < count; i++) {
             contacts.add(new ContactData().withUserName(String.format("name %s", i))
-                    .withUserLastName(String.format("lastName %s", i)));
+                    .withUserLastName(String.format("lastName %s", i))
+                    .withEmail1(String.format("a%s@a.ru", i))
+                    .withEmail2(String.format("b%s@a.ru", i))
+                    .withEmail3(String.format("c%s@a.ru", i))
+                    .withMobelTel(String.format("+7916111111%s", i))
+                    .withWorkTel(String.format("+7916111111%s", i))
+                    .withHomeTel(String.format("+7916111111%s", i))
+                    .withPhoto(photo)
+                    .withCompanyAddress(String.format("city S, street %s", i))
+                    .withGroup(String.format("test %s", i)));
         }
         return contacts;
     }
