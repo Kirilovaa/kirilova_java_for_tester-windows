@@ -105,16 +105,31 @@ public class ContactData {
   }
 
   @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", userName='" + userName + '\'' +
+            ", userLastName='" + userLastName + '\'' +
+            ", homeTel='" + homeTel + '\'' +
+            ", mobelTel='" + mobelTel + '\'' +
+            ", workTel='" + workTel + '\'' +
+            ", email1='" + email1 + '\'' +
+            ", email2='" + email2 + '\'' +
+            ", email3='" + email3 + '\'' +
+            '}';
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ContactData that = (ContactData) o;
-    return id == that.id && Objects.equals(userName, that.userName) && Objects.equals(userLastName, that.userLastName);
+    return id == that.id && Objects.equals(userName, that.userName) && Objects.equals(userLastName, that.userLastName) && Objects.equals(homeTel, that.homeTel) && Objects.equals(mobelTel, that.mobelTel) && Objects.equals(workTel, that.workTel) && Objects.equals(email1, that.email1) && Objects.equals(email2, that.email2) && Objects.equals(email3, that.email3);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userName, userLastName);
+    return Objects.hash(id, userName, userLastName, homeTel, mobelTel, workTel, email1, email2, email3);
   }
 
   public String getUserName() {
@@ -282,15 +297,7 @@ public class ContactData {
     return allEmails;
   }
 
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id=" + id +
-            ", userName='" + userName + '\'' +
-            ", userLastName='" + userLastName + '\'' +
-            '}';
-  }
-//  public ContactData withHomePage(String homePage) {
+  //  public ContactData withHomePage(String homePage) {
 //    this.homePage = homePage;
 //    return this;
 //  }
