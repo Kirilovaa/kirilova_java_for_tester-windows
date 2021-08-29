@@ -87,8 +87,7 @@ public class ContactDataGenerator {
                     .withWorkTel(String.format("+7916111111%s", i))
                     .withHomeTel(String.format("+7916111111%s", i))
                     .withPhoto(photo)
-                    .withCompanyAddress(String.format("city S, street %s", i))
-                    .withGroup(String.format("test %s", i)));
+                    .withCompanyAddress(String.format("city S, street %s", i)));
         }
         return contacts;
     }
