@@ -89,6 +89,10 @@ public class ContactHelper extends HelperBase {
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
+  public boolean isThereAContactWithoutGroup() {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText("[none]");
+    return isElementPresent(By.name("selected[]"));
+  }
 
   public void create(ContactData contact, boolean b) {
     gotoNewContact();
@@ -195,6 +199,13 @@ public class ContactHelper extends HelperBase {
 
   public int count() {
     return wd.findElements(By.name("selected[]")).size();
+  }
+
+  public void addToGroup(){
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText("[none]");
+    wd.findElements(By.name("selected[]"));
+    wd.findElement(By.linkText("group page \"test 1\"")).click();
+    wd.findElement(By.name("add")).click();
   }
 }
 
