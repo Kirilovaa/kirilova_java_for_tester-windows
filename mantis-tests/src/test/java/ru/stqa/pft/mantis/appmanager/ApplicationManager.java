@@ -1,12 +1,10 @@
 package ru.stqa.pft.mantis.appmanager;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -40,7 +38,6 @@ public class ApplicationManager {
     }
 
     public void stop() {
-        wd.findElement(By.linkText("Logout")).click();
         wd.quit();
     }
     public HttpSession newSession() {
