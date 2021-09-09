@@ -53,7 +53,7 @@ public class JamesHelper {
     }
 
     private void initTelnetSession() {
-        mailserver = app.getProperty("maiserver.host");
+        mailserver = app.getProperty("mailserver.host");
         int port = Integer.parseInt(app.getProperty("mailserver.port"));
         String login = app.getProperty("mailserver.adminlogin");
         String password = app.getProperty("mailserver.adminpassword");
