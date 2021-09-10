@@ -20,7 +20,7 @@ import static org.testng.Assert.assertTrue;
 
         @Test
         public void testChangePassword() throws IOException, MessagingException {
-            String email = "user%s@localhost";
+            String email = "user2@localhost";
             String user = "user2";
             Integer userId = app.db().userId(user);
             String password = "root";
@@ -29,7 +29,7 @@ import static org.testng.Assert.assertTrue;
             app.change().init(admin, password);
             app.newSession().login(password, admin);
             app.change().start(userId);
-            List<MailMessage> mailMessages = app.mail().waitForMail(2, 60000);
+            List<MailMessage> mailMessages = app.mail().waitForMail(1, 60000);
             String confirmationLink = findConfirmationLink(mailMessages, email);
             app.change().finish(confirmationLink, newPassword);
             assertTrue(app.newSession().login(newPassword, user));
