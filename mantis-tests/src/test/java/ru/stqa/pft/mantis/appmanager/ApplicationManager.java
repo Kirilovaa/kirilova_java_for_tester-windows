@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.MatchResult;
 
 public class ApplicationManager {
     private final Properties properties;
@@ -20,6 +19,7 @@ public class ApplicationManager {
     private FtpHelper ftp;
     private MailHelper mailHelper;
     private DbHelper dbHelper;
+    private SoapHelper soapHelper;
 //    private JamesHelper jamesHelper;
 
 
@@ -98,4 +98,10 @@ public class ApplicationManager {
 //        }
 //        return jamesHelper;
 //    }
+    public SoapHelper soap() {
+        if (soapHelper ==null) {
+            soapHelper = new SoapHelper(this);
+        }
+        return soapHelper;
+    }
 }
