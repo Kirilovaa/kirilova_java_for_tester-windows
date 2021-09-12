@@ -1,6 +1,7 @@
 package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.By;
+import ru.stqa.pft.mantis.model.UserData;
 
 public class ChangePasswordHelper extends HelperBase {
 
@@ -16,13 +17,12 @@ public class ChangePasswordHelper extends HelperBase {
         click(By.cssSelector("input[type='submit']"));
     }
 
-    public void start(int userId) {
-        wd.get(app.getProperty("web.baseUrl") + "/manage_user_page.php");
-        wd.findElement(By.cssSelector(String.format("a[href='manage_user_edit_page.php?user_id=%s']", userId))).click();
+    public void resetPass(Integer user) {
+        wd.get(app.getProperty("web.baseUrl") + "manage_user_edit_page.php?user_id="+ user);
         click(By.cssSelector("input[value='Сбросить пароль']"));
     }
 
-    public void finish(String confirmationLink, String password) {
+    public void changePass(String confirmationLink, String password) {
         wd.get(confirmationLink);
         type(By.name("password"), password);
         type(By.name("password_confirm"), password);

@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.lanwen.verbalregex.VerbalExpression;
 import ru.stqa.pft.mantis.model.MailMessage;
+import ru.stqa.pft.mantis.model.UserData;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -20,18 +21,19 @@ import static org.testng.Assert.assertTrue;
 
         @Test
         public void testChangePassword() throws IOException, MessagingException {
-            String email = "user2@localhost";
-            String user = "user2";
-            Integer userId = app.db().userId(user);
+            UserData userData = app.db().users().iterator().next();
+            String email = userData.getEmail();
+            String user = userData.getUsername();
             String password = "root";
             String newPassword = "newPassword";
             String admin = "administrator";
+            Integer userId = userData.getId();
             app.change().init(admin, password);
             app.newSession().login(password, admin);
-            app.change().start(userId);
-            List<MailMessage> mailMessages = app.mail().waitForMail(1, 60000);
+            app.change().resetPass(userId);
+            List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
             String confirmationLink = findConfirmationLink(mailMessages, email);
-            app.change().finish(confirmationLink, newPassword);
+            app.change().changePass(confirmationLink, newPassword);
             assertTrue(app.newSession().login(newPassword, user));
         }
 
