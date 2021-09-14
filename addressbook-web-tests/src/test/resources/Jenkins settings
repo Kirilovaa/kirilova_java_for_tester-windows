@@ -1,0 +1,10 @@
+Запуск из консоли Дженкинса и удаленного Селениума:
+
+C:\Program Files>java -jar jenkins.war --httpPort=8081
+
+C:\Program Files>java -jar selenium-server-standalone-3.141.59.jar
+
+
+
+
+
