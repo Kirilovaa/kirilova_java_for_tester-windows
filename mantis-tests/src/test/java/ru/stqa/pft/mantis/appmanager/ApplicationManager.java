@@ -20,6 +20,7 @@ public class ApplicationManager {
     private MailHelper mailHelper;
     private DbHelper dbHelper;
     private SoapHelper soapHelper;
+    private RestHelper restHelper;
 //    private JamesHelper jamesHelper;
 
 
@@ -103,5 +104,11 @@ public class ApplicationManager {
             soapHelper = new SoapHelper(this);
         }
         return soapHelper;
+    }
+    public RestHelper rest(){
+        if (restHelper==null) {
+            restHelper = new RestHelper(this);
+        }
+        return restHelper;
     }
 }

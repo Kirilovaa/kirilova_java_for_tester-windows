@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import ru.lanwen.verbalregex.VerbalExpression;
 import ru.stqa.pft.mantis.model.MailMessage;
 import ru.stqa.pft.mantis.model.UserData;
-
 import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.List;

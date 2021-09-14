@@ -35,16 +35,6 @@ public class HbConnectionTests {
 
     @Test
     public void testHbConnection() {
-/*        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        List<UserData> result = session.createQuery(String.format( "from UserData where username='%s'", "user13" )).list();
-        for ( UserData user : result ) {
-            System.out.println(user);
-            System.out.println(user.getId());
-        }
-        session.getTransaction().commit();
-        session.close();
-    } */
         String username = "user1";
         int id = 0;
         Session session = sessionFactory.openSession();
